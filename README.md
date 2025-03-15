@@ -45,7 +45,7 @@ Pasos para Correr la Aplicación Flutter
 Si el proyecto está en un repositorio de Git, clónalo usando:
 
 ```bash
-git clone <URL del repositorio>
+git clone https://github.com/FSHK/crediQTest.git
 ```
 
 Si tienes un archivo ZIP del proyecto, simplemente descomprímelo en la ubicación de tu preferencia.
