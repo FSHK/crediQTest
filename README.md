@@ -2,6 +2,13 @@
 
 CrediQ Technical Test - Multiplatform
 
+# Screnshots
+![Image](https://github.com/user-attachments/assets/80acae30-f10f-4376-b5f8-287b35d2f247)
+
+![Image](https://github.com/user-attachments/assets/acfa295a-c26e-4708-9eb7-a205426039dc)
+
+![Image](https://github.com/user-attachments/assets/5ee8a6cf-fa1e-4e28-b4fb-bfffb59d16f4)
+
 ### Contenido
 
 ## HomePage

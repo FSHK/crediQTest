@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:credi_q_tech_test/screens/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -59,11 +60,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.network(
-                          'https://media.istockphoto.com/id/2151742586/photo/abstract-3d-composition-of-blue-purple-and-glass-shapes-floating-in-the-air-against-a-grey.jpg?s=1024x1024&w=is&k=20&c=uRrumQaVkW1Uw3m6epehgKdTG-6RU9JVxTAHcv5OXnc=',
+                        CachedNetworkImage(
+                          imageUrl:
+                              'https://media.istockphoto.com/id/2151742586/photo/abstract-3d-composition-of-blue-purple-and-glass-shapes-floating-in-the-air-against-a-grey.jpg?s=1024x1024&w=is&k=20&c=uRrumQaVkW1Uw3m6epehgKdTG-6RU9JVxTAHcv5OXnc=',
                           height: 150,
                           width: double.infinity,
                           fit: BoxFit.cover,
+                          placeholder:
+                              (context, url) =>
+                                  Center(child: CircularProgressIndicator()),
+                          errorWidget:
+                              (context, url, error) => Icon(Icons.error),
                         ),
                         SizedBox(height: 16),
                         Padding(
@@ -164,8 +171,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   tag: game.id,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8),
-                                    child: Image.network(
-                                      game.thumbnail,
+                                    child: CachedNetworkImage(
+                                      imageUrl: game.thumbnail,
                                       height: 150,
                                       width: 150,
                                       fit: BoxFit.cover,
@@ -222,8 +229,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             tag: "${game.id}-2",
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8),
-                              child: Image.network(
-                                game.thumbnail,
+                              child: CachedNetworkImage(
+                                imageUrl: game.thumbnail,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -247,10 +254,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.shopping_cart),
-                Text("${itemCount}")
-              ],
+              children: [Icon(Icons.shopping_cart), Text("${itemCount}")],
             ),
             backgroundColor: Colors.blue,
             foregroundColor: Colors.white,
@@ -260,5 +264,3 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 }
-
-
