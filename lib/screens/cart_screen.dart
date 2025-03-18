@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/cart_provider.dart';
 
 class CartScreen extends ConsumerWidget {
+  const CartScreen({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final cartItems = ref.watch(shoppingCartProvider);
@@ -217,7 +219,7 @@ class CartScreen extends ConsumerWidget {
           cartItems.isNotEmpty
               ? Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {

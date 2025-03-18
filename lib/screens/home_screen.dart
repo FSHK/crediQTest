@@ -6,9 +6,10 @@ import '../providers/cart_provider.dart';
 import '../services/game_service.dart';
 import '../models/game.dart';
 import 'game_details.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -270,7 +271,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [Icon(Icons.shopping_cart), Text("${itemCount}")],
+              children: [Icon(Icons.shopping_cart), Text("$itemCount")],
             ),
           ),
         ],

@@ -140,10 +140,10 @@ class _GameDetailsState extends ConsumerState<GameDetails> {
                           IconButton(
                             icon: const Icon(Icons.public),
                             onPressed: () {
-                              final Uri _url = Uri.parse(
+                              final Uri url = Uri.parse(
                                 widget.selectedGame.gameUrl,
                               );
-                              launchUrl(_url);
+                              launchUrl(url);
                             },
                           ),
                         ],
