@@ -90,7 +90,7 @@ class _GameDetailsState extends ConsumerState<GameDetails> {
                       "${widget.selectedGame.id}${(widget.additionalId != null) ? "-${widget.additionalId}" : ""}",
                   child: ClipRect(
                     child: Image.network(
-                      widget.selectedGame.thumbnail,
+                      "https://cors-anywhere.herokuapp.com/${widget.selectedGame.thumbnail}",
                       fit: BoxFit.cover,
                     ),
                   ),

@@ -187,7 +187,7 @@ class CartScreen extends ConsumerWidget {
                               leading: ClipRRect(
                                 borderRadius: BorderRadius.circular(8),
                                 child: Image.network(
-                                  game.thumbnail,
+                                  "https://cors-anywhere.herokuapp.com/${game.thumbnail}",
                                   width: 100,
                                   height: 100,
                                   fit: BoxFit.cover,

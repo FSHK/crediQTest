@@ -31,7 +31,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       List<Game> fetchedGames = await gameService.fetchGames();
       setState(() {
         games = fetchedGames;
-        carouselGames = games.take(5).toList(); // Select a few games for the carousel
+        carouselGames = games.take(15).toList();
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -111,40 +111,29 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    GestureDetector(
-                                      onTap: () {},
-                                      child: Row(
-                                        children: [
-                                          Expanded(
-                                            child: Container(
-                                              padding: EdgeInsets.symmetric(
-                                                vertical: 12,
-                                                horizontal: 20,
-                                              ),
-                                              alignment: Alignment.center,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xFF578FCA),
-                                                borderRadius: BorderRadius.circular(
-                                                  20,
-                                                ),
-                                              ),
-                                              child: Text(
-                                                // AppLocalizations.of(context)!.add,
-                                                "Explora más",
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
+                                    Container(
+                                      padding: EdgeInsets.symmetric(
+                                        vertical: 12,
+                                        horizontal: 20,
                                       ),
-                                    ),
-                                    SizedBox(
                                       width:
-                                          MediaQuery.of(context).size.width *
-                                          0.6,
+                                      MediaQuery.of(context).size.width *
+                                          0.3,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF578FCA),
+                                        borderRadius: BorderRadius.circular(
+                                          20,
+                                        ),
+                                      ),
+                                      child: Text(
+                                        // AppLocalizations.of(context)!.add,
+                                        "Explora más",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -187,7 +176,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8),
                                     child: CachedNetworkImage(
-                                      imageUrl: game.thumbnail,
+                                      imageUrl: "https://cors-anywhere.herokuapp.com/${game.thumbnail}",
                                       height: 150,
                                       width: 150,
                                       fit: BoxFit.cover,
@@ -245,7 +234,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: CachedNetworkImage(
-                                imageUrl: game.thumbnail,
+                                imageUrl: "https://cors-anywhere.herokuapp.com/${game.thumbnail}",
                                 fit: BoxFit.cover,
                               ),
                             ),

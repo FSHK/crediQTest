@@ -2,6 +2,22 @@
 
 CrediQ Technical Test - Multiplatform
 
+### _Disclaimer_
+Actualmente el API proporcionada presenta ciertos fallos de CORS, razon por la cual más adelante mostramos como configurar un proxy para su correcto funcionamiento, esto deberia ser solventado directamente desde el API.
+
+#### Cambios que se aplicados para la version web :
+
+- Remplazo de urls, como por ejemplo 
+```agsl
+static const String apiUrl = "https://www.freetogame.com/api/games";
+```
+fue remplazado por 
+```agsl
+static const String apiUrl = "https://cors-anywhere.herokuapp.com/https://www.freetogame.com/api/games";
+```
+y asi en el resto de menciones de la app.
+
+
 # Screnshots
 ![Image](https://github.com/user-attachments/assets/80acae30-f10f-4376-b5f8-287b35d2f247)
 
@@ -79,8 +95,16 @@ flutter run
 
 También puedes correr la aplicación desde el editor seleccionando el dispositivo (emulador o físico) y presionando el botón de "Run".
 
-Solución de Problemas Comunes
-1. Errores de Dependencias
+# Solución de Problemas Comunes
+
+1. Error de __CORS__ en ambiente WEB.
+Si al cargar el ambiente web se muestra un indicador de carga y en la pestaña de red se ve el error CORS, como en la siguiente imagen :
+   ![Image](https://github.com/user-attachments/assets/59b2e3e0-3548-4f13-b3d4-a71bb2f8064c)
+
+Debemos habilitar un proxy para poder ajustar dicho tema. Para ello debemos ir al siguiente [enlace](https://cors-anywhere.herokuapp.com/corsdemo) y dar clic en _"Request temporary access to the demo server"_.
+el proyecto ya quedo configurado para poder 
+
+2. Errores de Dependencias
 Si recibes errores relacionados con dependencias, intenta correr:
 
 ```bash
@@ -88,13 +112,13 @@ flutter clean
 flutter pub get
 ```
 
-2. Problemas con el Emulador
+3. Problemas con el Emulador
 Asegúrate de tener el emulador correctamente configurado en Android Studio o Xcode. Si el emulador no responde, reinícialo o crea uno nuevo.
 
-3. Errores de Plataforma (Android/iOS)
+4. Errores de Plataforma (Android/iOS)
 Si ves un error relacionado con las plataformas, asegúrate de haber configurado correctamente los entornos de Android y iOS (como Android SDK, Xcode, etc.).
 
-Opciones Adicionales
+## Opciones Adicionales
 Correr en modo Debug
 ```bash
 flutter run --debug
