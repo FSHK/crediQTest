@@ -247,8 +247,10 @@ class _GameDetailsState extends ConsumerState<GameDetails> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        shoppingCartNotifier.addNewItem(widget.selectedGame);
-                        Navigator.of(context).pop();
+                        if(!shoppingCart.contains(widget.selectedGame)){
+                          shoppingCartNotifier.addNewItem(widget.selectedGame);
+                          Navigator.of(context).pop();
+                        }
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(vertical: 12),

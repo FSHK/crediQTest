@@ -43,6 +43,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     final cartItems = ref.watch(shoppingCartProvider);
@@ -111,28 +112,32 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   children: [
                                     GestureDetector(
                                       onTap: () {},
-                                      child: Expanded(
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(
-                                            vertical: 12,
-                                            horizontal: 20,
-                                          ),
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFF578FCA),
-                                            borderRadius: BorderRadius.circular(
-                                              20,
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Container(
+                                              padding: EdgeInsets.symmetric(
+                                                vertical: 12,
+                                                horizontal: 20,
+                                              ),
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFF578FCA),
+                                                borderRadius: BorderRadius.circular(
+                                                  20,
+                                                ),
+                                              ),
+                                              child: Text(
+                                                // AppLocalizations.of(context)!.add,
+                                                "Explora más",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                          child: Text(
-                                            // AppLocalizations.of(context)!.add,
-                                            "Explora más",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
+                                        ],
                                       ),
                                     ),
                                     SizedBox(
