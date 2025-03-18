@@ -6,7 +6,8 @@ import '../models/game.dart';
 /// Service responsible for fetching game data from the API and caching it locally using Hive.
 class GameService {
   /// Constants since this never change in this case
-  static const String apiUrl = "https://www.freetogame.com/api/games";
+  static const String apiUrl = "https://cors-anywhere.herokuapp.com/https://www.freetogame.com/api/games";
+
   static const String boxName = "gamesBox";
 
   /// Fetches the list of games from the API.
@@ -27,6 +28,7 @@ class GameService {
 
         return games;
       } else {
+        return [];
         throw Exception("Failed to load games");
       }
     } catch (e) {

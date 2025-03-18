@@ -26,12 +26,21 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   void loadGames() async {
-    List<Game> fetchedGames = await gameService.fetchGames();
-    setState(() {
-      games = fetchedGames;
-      carouselGames =
-          games.take(5).toList(); // Select a few games for the carousel
-    });
+    try {
+      List<Game> fetchedGames = await gameService.fetchGames();
+      setState(() {
+        games = fetchedGames;
+        carouselGames = games.take(5).toList(); // Select a few games for the carousel
+      });
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to load games: $e'),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 3),
+        ),
+      );
+    }
   }
 
   @override
@@ -251,13 +260,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               );
             },
             shape: CircleBorder(),
+            backgroundColor: Colors.blue,
+            foregroundColor: Colors.white,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [Icon(Icons.shopping_cart), Text("${itemCount}")],
             ),
-            backgroundColor: Colors.blue,
-            foregroundColor: Colors.white,
           ),
         ],
       ),
